@@ -1,0 +1,26 @@
+> init
+<<<
++ s1.txt hi.txt
+> add s1.txt
+<<<
+> commit "added s1.txt"
+<<<
+> branch bb
+<<<
++ s2.txt hey.txt
+> add s2.txt
+<<<
+> commit "added s2.txt"
+<<<
+> checkout bb
+<<<
+> rm s1.txt
+<<<
+> commit "removed s1.txt"
+<<<
+> checkout master
+<<<
+> merge bb
+<<<
+* s1.txt
+= s2.txt hey.txt

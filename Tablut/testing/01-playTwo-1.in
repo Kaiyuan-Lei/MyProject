@@ -1,0 +1,42 @@
+#* java -ea tablut.Main
+seed 85948386
+manual white
+f1-3
+e6-d
+i6-e
+d5-3
+a6-c
+f5-7
+f3-5
+e5-d
+d9-6
+d3-2
+b5-3
+e3-c
+i4-3
+c3-h
+b3-d
+e4-c
+e8-7
+h3-g
+e2-f
+f7-g
+f2-4
+g3-6
+f4-d
+d5-e
+e1-4
+g6-5
+e6-f
+e5-f
+d3-f
+g5-6
+h5-g
+f5-d
+a4-b
+g6-h
+dump
+auto black
+#*move
+#*remote move/win
+quit

@@ -1,0 +1,35 @@
+GITBUG ERROR REPORT
+
+1. Type of operating system you are using to produce this error:
+
+
+Apple macOS
+
+
+2. Version of the Java system you are using (java -version).
+
+
+version "12.0.1"
+
+
+3. Subdirectory of your Git working directory to use as the current
+   directory when compiling and running your program.
+
+proj1
+
+
+4. EXACT sequence of commands that will cause the error you are seeing,
+   including anything needed to compile and execute the program.
+   It is NOT acceptable to say "any execution of the program fails"; give
+   us a specific one.
+
+My code produces the correct output for trivial.in and trivial1.in. However, for the riptide.inp, the first 4 lines are the same, but the last 2 are not.
+
+
+5. What you see when you execute the commands in 4.
+HGJNB OKDWA LBFKU CMUTJ ZUIO
+XTYQF BDZRG BYFZC ASYRU
+UAAFW OAGFK OCJGM UMOPC HTAVR SA
+HXHFR UXOFC BLRYS DXFCZ XGVFA NA
+CNOFV JZICU URUZZ NQOVZ YIBLG OXGYE
+XRVYB TZNLV ISAOD NSIYD VPGUX N

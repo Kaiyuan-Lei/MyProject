@@ -1,0 +1,22 @@
+> init
+<<<
++ s1.txt hi.txt
++ s2.txt hey.txt
+> add s1.txt
+<<<
+> add s2.txt
+<<<
+> rm s1.txt
+<<<
+> commit "added s2.txt"
+<<<
++ s3.txt yo.txt
+> add s3.txt
+<<<
+> commit "added s3.txt"
+<<<
+> rm s2.txt
+<<<
+* s2.txt
+= s1.txt hi.txt
+= s3.txt yo.txt

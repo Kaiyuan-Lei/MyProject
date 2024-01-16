@@ -1,0 +1,182 @@
+Gitlet Design Document
+----------------------
+
+Classes and Data Structures
+---------------------------
+**** Main ****
+
+This class includes the main function to run the program.
+
+** Fields **
+
+1. File GITLET_FOLDER: .gitlet folder.
+
+
+
+**** Repository ****
+
+The class includes the repository (commit tree date structure).
+
+** Fields **
+
+1. Branch head: A pointer to the current branch
+2. HashMap<String, Commit> idToCommit: Map from each SHA-1 ID to its commit.
+3. HashMap<String, LinkedList<String>> commitMsgToCommitIDs:  Map from commit messages to SHA-1 ID of all commits with that message.
+4. HashMap<String, Branch> branchNameToBranch: Map from each branch name to its corresponding branch.
+5. HashMap<String, String> abbrevIdToId: Map from complete ID to abbreviated 6 digit ID.
+
+
+
+**** Commit ****
+
+This class defines what a commit should look like. 
+
+** Fields **
+
+1. int ​commitId​: SHA-1 ID of the commit
+2. String ​commitMsg​: commit message
+3. Date ​commitTime​: commit time
+4. String ​commitDirectory​: The directory the commit is in
+5. Map<String, String> fileNameToId​: Map staged files to its directory 
+6. Commit ​parentCommit​: The previous commit (parent commit)
+
+
+
+**** Branch ****
+
+This class represents a branch, contains pointers to Commits. 
+
+** Fields **
+
+1. String ​branchName​: branch name
+2. Commit ​lastCommit​: lastCommit
+3. StagingArea ​staging Area​: current staging area
+
+
+
+**** StagingArea ****
+
+This class is a picture of the staging area .
+
+** Fields **
+
+1. Commit ​lastCommit​: latest commit
+2. LinkedList<String> ​filesNewInStaging​: files newly added LinkedList<String> ​
+3. toRemoveFiles​: files marked to be removes LinkedList<String> ​
+4. filesAlreadyInStaging​: files already added
+
+
+Algorithms
+----------
+
+**** Main Class ****
+
+1. Repository initialize(): Returns an initial Gitlet system in the current directory. Using File class to create the .gitlet directory. Error if a gitlet already exists
+
+2. Repository deserialize(): Return the Gitlet system to run new commands on it. Deserialize to convert the repo to bytes
+
+3. void serialize(Repository repo): Saves a snapshot of our repository so we can use it 
+again. Serialize to convert bytes to the repo
+
+4. main(String[] args): Main, get input ARGS and does appropriate action accordingly
+
+
+
+
+**** Repository Class ****
+
+1. Repository()​. Update the variables
+
+2. void add(String fileName)​: Adds a copy of the file as it currently exists to the staging area. Call ​head​.​addFile(​ filename)
+
+3. void commit(String commitMsg)​: creates a new commit with a descriptive commitMsg. Call h​ead​.​commit​(commitMsg). Update the variables
+
+4. void remove(String fileName)​: Unstage the file FILENAME if it is currently staged. Call ​head​.​removeFile​(fileName)
+
+5. void log(): Displays information about each commit on current branch in order. U​se a for loop, starting at the current head commit and go backwards
+
+6. void logGlobal():  Similar to log() but displays information about all commits ever made. L​ook into ​idToCommit​, all ​toString()​ on each commit
+
+7. void find(String commitMsg):​ print the key if its value in ​commitMsgToID ​matches given commitMsg
+
+8. void checkOut(String fileName): ​Checks out file FILENAME if it exists. Call ​head​.​checkout​(fileName)
+
+9. void checkOut(int commitIdd, String fileName): ​ Checks out file from the commit with SHA-1 ID. call ​checkout​(fileName) with key of ID in
+idToCommit
+
+10. void checkOut(String branchName): Checks out branch BRANCHNAME. C​all ​head​.​getHead().checkOut();
+
+11. void addBranch(String branchName):​ Adds a branch with name BRANCHNAME. creates a new branch with branchName
+head​.​getHead() a​ s head
+
+12. void removeBranch(String branchName):​ Remove BRANCHNAME from
+branchNameToBranch. 
+
+13. void reset(int commitId) : Checks out all the files tracked by the given COMMITID.. c​all checkout on ​idToCommit​.​get(id)​. Reset head and currentStage
+
+14. void merge(String branchName)​: merges branchName and current branch. ​head​.merge(​branchNameToBranch​.get(BRANCHNAME))
+
+15. void status():​ displays branches existed, files have been stages or marked for untracking. call​ toString()
+
+16. String toString():​ Use a StringBuilder
+
+
+
+**** Commit Class ****
+
+1. Commit(stagingArea currentStage, String commitMsg):Same as above, with commitMsg
+Getter methods for all variables ...call ​actualCommit()
+
+2. boolean containsFile(String fileName): returns true if the commit contains FILENAME
+
+3. File getFileName(String fileName): returns file fileName
+
+4. void checkOutFile(String fileName): checks out file FILENAME. uses serialize
+
+5. void checkOutAllFines(): checks out current commit
+
+6. boolean unModified(Commit other, String fileName): returns true if file unchanged. compare file Ids
+
+7. void writeFile(): makes a directory
+
+8. String toString(): String representation of the commit object
+
+
+
+**** Branch Class ****
+
+1. Branch(String branchName, Commit lastCommit): constructor. Getter and Setter methods for variables...
+
+2. void commit(String commitMsg): Make a commit with commitMsg. call commit on lastCommit, instantiates stagingArea
+
+3. void stageFile(String fileName): adds file to the staging file. call stageFile on ​stagingArea
+
+4. void removeFile(String fileName): remove File from the staging area. call remove on ​stagingArea
+
+5. void merge(Branch other): merge this branch with another branch. Get split point using ​splitPoint()
+
+6. Commit splitPoint(Branch b1, Branch b2): returns merge point of branch and current. traverse 2 branches until ​parent ​commits is different
+
+7. branch int size(): returns the number of commits in branch. keep going to previousCommit until it’s null
+
+
+
+**** StagingArea Class ****
+
+1. StagingArea(Commit lastCommit): constructor. Create a staging area associated to latestCommit.
+Getter methods for all variables ...
+
+2. void stageFile(String fileName):adds FILENAME to be staged if it exists and changed.add file in ​filesAlreadyInStaging ​and ​filesNewInStaging 
+
+3. void remove(String fileName)​: removes file FILENAME from the staging area. remove files in ​filesAlreadyInStaging​ and ​toRemoveFiles
+
+4. identical(String fileName): returns true if file FILENAME has not changed since last commit. compare file Ids
+
+5. String toString(): String representation of StagingArea object
+
+
+
+Persistence
+-----------
+
+In order to persist the settings of the repository, we need to save the state after each call, Write the ​Repository​ object to disk. Use ​serialize​ (FileInputStream) to convert the Java object into bytes that we can eventually write to a specially named file on disk. In order to retrieve our state, we need to search for the saved files before each call, look for the specially named files. Use the FileOutputStream​ t​o read the data of files or deserialize​ to convert files into corresponding Java objects.

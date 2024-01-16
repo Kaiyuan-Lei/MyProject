@@ -1,0 +1,13 @@
+#* java -ea tablut.Main
+# Immediate win for White.
+manual white
+seed 3959848
+limit 9
+a4-3
+e4-f
+b5-3
+e5-4
+b3-5
+auto white
+#*move/win+
+quit

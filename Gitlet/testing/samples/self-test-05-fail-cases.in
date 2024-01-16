@@ -1,0 +1,23 @@
+> init
+<<<
++ s1.txt hi.txt
+> add s1.txt
+<<<
+> commit "added s1.txt"
+<<<
+> add s1.txt
+<<<
+> commit "nothing changed"
+No changes added to the commit.
+<<<
+> branch bb
+<<<
+> checkout master
+No need to checkout the current branch.
+<<<
+> branch bb
+A branch with that name already exists.
+<<<
+> add "s5.txt"
+File does not exist.
+<<<

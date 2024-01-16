@@ -1,0 +1,34 @@
+> init
+<<<
++ s1.txt hi.txt
+> add s1.txt
+<<<
+> commit "added s1.txt"
+<<<
+> branch sub
+<<<
++ s2.txt hey.txt
+> add s2.txt
+<<<
+> commit "added s2.txt"
+<<<
+> checkout sub
+<<<
+* s2.txt
+= s1.txt hi.txt
+> checkout master
+<<<
+= s1.txt hi.txt
+= s2.txt hey.txt
++ s3.txt yo.txt
+> add s3.txt
+<<<
+> commit "added s3.txt"
+<<<
+> rm s3.txt
+<<<
+> checkout -- s3.txt
+<<<
+= s1.txt hi.txt
+= s2.txt hey.txt
+= s3.txt yo.txt

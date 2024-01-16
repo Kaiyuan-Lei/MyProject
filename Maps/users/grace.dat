@@ -1,0 +1,10 @@
+make_user(
+    'Grace Lei',      # name
+    [                   # reviews
+        make_review('Cafe 3', 3.0),
+	make_review('Cafe Durant', 4.5),
+	make_review('T-Toust', 4.5),
+	make_review('Quickly', 3.5),
+	make_review('Kimchi Garden', 5)
+    ]
+)

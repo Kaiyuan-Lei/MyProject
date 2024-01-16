@@ -1,0 +1,98 @@
+#* java -ea tablut.Main
+# Make reproducible
+seed 1234569
+# Allow 30 seconds/move, and 180 seconds for a complete set of moves
+#*time 30 180
+# Initial moves
+manual white
+d1-4
+e4-g
+d4-e
+d5-7
+a4-d
+c5-6
+f9-6
+e7-f
+i6-f
+f5-4
+e8-f
+g5-6
+h5-7
+e6-7
+i5-h
+g4-h
+i4-5
+e5-f
+h5-g
+f4-2
+e4-f
+h4-5
+h7-g
+f5-g
+f4-g
+g5-f
+e2-3
+g6-h
+g7-5
+h6-9
+e3-f
+e7-8
+d9-8
+f5-e
+e9-7
+e5-6
+f8-6
+e6-4
+b5-c
+d7-6
+g5-d
+d6-e
+e1-3
+e4-5
+f3-5
+h9-g
+g4-5
+c6-d
+d8-7
+g9-6
+c5-6
+g6-7
+d4-e
+g7-h
+a5-b
+h7-i
+f1-4
+i7-g
+f4-h
+g7-h
+b5-6
+h7-i
+h4-5
+i7-h
+g5-4
+h7-g
+h5-g
+g7-h
+i5-h
+h7-i
+h5-i
+i7-g
+g4-h
+g7-h
+h4-5
+h7-i
+g5-6
+i7-9
+h5-7
+i9-g
+i5-8
+g9-8
+i8-6
+g8-f
+a6-8
+f8-9
+# Make both players into AIs
+auto white
+auto black
+# Play a complete game
+#* move/win
