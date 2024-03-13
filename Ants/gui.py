@@ -2,7 +2,7 @@ import ants
 import utils
 import state
 import json
-import distutils.core
+import setuptools
 import urllib.request
 import os
 import shutil
